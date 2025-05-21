@@ -63,6 +63,8 @@ Aims to simplify the model and reduce overfitting.
 5. Evaluation
 Metrics: Mean Squared Error (MSE) and Relative Absolute Error (RAE) on training and test sets.
 Visualizations: Plots showing MSE convergence, training fit, and one-step-ahead forecasts.
+
+
 📊 Results & Key Findings
 The project's experiments revealed that optimal model choice and regularization strategies are highly dependent on the characteristics of the time series data.
 Network Configuration	MSE Train	RAE Train	MSE Test	RAE Test
@@ -76,6 +78,8 @@ CNN+Dropout+Momentum	0.003355	0.12608	0.014600	0.85469
 CNN NoDropout+Momentum	0.003863	0.13229	0.013894	0.83994
 MLP NoPrune	0.007149	0.20023	0.009941	0.74856
 MLP Prune	0.006028	0.18279	0.008587	0.68086
+
+
 Key Observations:
 Architecture Superiority is Context-Dependent:
 For Sunspots (chaotic): The DFN ("CNN-like") models consistently outperformed MLPs, indicating depth's benefit for complex dynamics.
@@ -87,11 +91,16 @@ Slightly hindered CO2 DFN performance, indicating it can disrupt learning of hig
 Pruning:
 Slightly detrimental for Sunspot MLPs (model likely not over-parameterized).
 Highly beneficial for CO2 MLPs (significantly improved generalization), suggesting effective complexity reduction.
+
+
+
 📂 Project Structure
 sunspot_tables.m: Main MATLAB script for the sunspot data analysis. Contains all core network implementation (initialization, forward pass, backpropagation, training loops with momentum/dropout) and MLP functions (training with/without pruning), as well as plotting and metric calculation helpers.
 co2.m: MATLAB script adapted from sunspot_tables.m for the CO2 data analysis. Uses the same core helper functions to ensure consistent methodology.
 sunspot.dat: Historical sunspot number dataset.
 co2.csv: Mauna Loa atmospheric CO2 concentration dataset.
+
+
 🚀 How to Run the Code
 Clone the Repository:
 MATLAB Installation: Ensure you have MATLAB (R2023b or compatible version) installed.
@@ -102,6 +111,8 @@ To run the sunspot analysis: Type sunspot_tables in the MATLAB Command Window an
 To run the CO2 analysis: Type co2 in the MATLAB Command Window and press Enter.
 Expected Output:
 The scripts will display training progress in the Command Window (SSE and MSE per epoch) and generate several plots visualizing training fit, test set forecasts, and MSE convergence curves for each model. Final performance tables will also be displayed in the Command Window.
+
+
 ⚠️ Dependencies
 MATLAB (R2023b or later recommended)
 📧 Contact
